@@ -22,7 +22,7 @@ module.exports = function (grunt) {
       },
       build: {
         src: 'assets/js/**/*.js',
-        dest: 'build/js/a.js'
+        dest: 'assets/build/js/a.js'
       }
     },
 
@@ -33,7 +33,7 @@ module.exports = function (grunt) {
           style: 'compressed'
         },
         files: {
-          'build/css/a.css': 'assets/_scss/main.scss'
+          'assets/build/css/a.css': 'assets/_scss/main.scss'
         }
       }
     },
