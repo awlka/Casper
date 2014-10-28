@@ -33,20 +33,23 @@
     {{! Styles'n'Scripts }}
     <link rel="stylesheet" type="text/css" href="{{asset "build/css/a.css"}}" />
 
-    <script type="text/javascript">
-        WebFontConfig = {
-          google: { families: [ 'Open+Sans:400italic,400,300,600:latin' ] }
-        };
-        (function() {
-          var wf = document.createElement('script');
-          wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-            '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-          wf.type = 'text/javascript';
-          wf.async = 'true';
-          var s = document.getElementsByTagName('script')[0];
-          s.parentNode.insertBefore(wf, s);
-        })();
+    <script>
+        ~function (document) {
+          var elem = document.createElement('link');
+          var head = document.getElementsByTagName('head')[0];
+          elem.rel = 'stylesheet';
+          elem.href = 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600:latin';
+          elem.media = 'only x';
+          head.appendChild(elem);
+          setTimeout(function () {
+            elem.media = 'all';
+          });
+        }(document);
     </script>
+
+    <noscript>
+      <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600:latin'>
+    </noscript>
 
     {{! Ghost outputs important style and meta data with this tag }}
     {{ghost_head}}
